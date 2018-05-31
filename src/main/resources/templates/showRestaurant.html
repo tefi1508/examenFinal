@@ -4,9 +4,10 @@
 <head>
     <title>Show</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css?family=Advent+Pro" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Tajawal" rel="stylesheet"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
@@ -14,31 +15,19 @@
 
 @import url('https://fonts.googleapis.com/css?family=Sacramento');
 
-.jumbotron {
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
     background: linear-gradient(#080708, #DD1C1A);
-    color: #ffffff;
-    diplay: inline-block;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-.jumbotron h1 {
-    font-family: 'Sacramento', cursive;
-    text-align : center;
-}
-
-
-.jumbotron p {
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
-    font-size: 15px;
-    letter-spacing: 5px;
-    word-spacing: -3.6px;
-    font-variant: small-caps;
-}
-
-.thumbnail {
-    padding: 0 0 0 0;
-    border: none;
-    border-radius: 0;
-}
+/*------------------- Nav Bar ---------------------- */
 
 .navbar {
     margin-bottom: 0;
@@ -72,114 +61,107 @@
     margin-top:3%;
 }
 
-h2{
-    margin-top:3%;
-    margin-bottom:3%;
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
-    font-size: 30px;
-    letter-spacing: 5px;
-    word-spacing: -3.6px;
-    font-variant: small-caps;
-    margin-left:200px;
-}
-
-.middle {
-  transition: .5s ease;
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-.text {
-  background-color: black;
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 20px;
-  color: white;
-  font-variant: small-caps;
-  padding: 16px 32px;
-}
-
 .navbar-brand{
     font-family: 'Julius Sans One', sans-serif;
     fot-size: 30px;
 }
 
-.up div{
-    display: inline-block;
-    text-align:center;
+/*-------------------------- Restaurant Column -------------------*/
+
+.col-sm-4{
+    background-color: black;
+    margin-left: 7%;
+    height: 100%;
+    color: white;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+
+
+    background-attachment: fixed;
 }
 
-.down p{
-    text-align:center;
+.contenido {
+    margin-top: 15%;
 }
 
-.down h3{
-    margin-left:200px;
+.col-sm-4 h1 {
+    text-align : center;
+    text-transform: uppercase;
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 25px;
+    letter-spacing: 3px;
+    padding: 5px;
+}
+
+.img-responsive{
+    padding: 10px;
+    margin: auto;
+}
+
+.like-div{
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.like-div a{
+    color: white;
+    margin: 0 auto;
+}
+
+.like-div a:hover{
+    color: #E94F37 !important;
+}
+
+.like-div label{
+    color: white;
+    font-weight: normal;
+    margin: 0 auto;
+}
+
+.like-div label:hover{
+    color: white;
+}
+
+.comments {
     text-align:left;
+    padding: 10px;
+    font-size: 15px;
+    letter-spacing: 2px;
+    background-color:black;
 }
 
-#izquierda{
-    margin-top:0px;
-    margin-left:200px;
-    text-align:left;
+.comments h3{
+    font-family: 'Amatic SC', cursive;
 }
 
-#derecha{
-    margin-right:300px;
-    border:1px solid white;
-    border-radius: 10px;
-    float:right;
-    padding-left:2em;
-    padding-right:8em;
+.comments p{
+    font-family: 'Tajawal', sans-serif;
 }
 
-#derecha h3{
-    text-align:left;
+.comentar{
+    text-align: center;
 }
 
-#derecha h4{
-    text-align:left;
+.clasificacion {
+    margin: 0 auto;
+    direction: rtl;
+    unicode-bidi: bidi-override;
+    padding: 10px;
 }
-
-
-#derecha p{
-    text-align:center;
-}
-
-/*-------------------Comentarios-----------------*/
-#text{
-    color: black;
-    font-weight: bold;
-}
-
-#bt-guardar{
-    background-color: gray;
-    font-weight: 600;
-}
-
-#bt-guardar:hover{
-    color: yellow;
-}
-
-/*-------------------Estrellas-----------------*/
 
 .clasificacion input[type="radio"] {
   display: none;
 }
 
-label {
+.clasificacion label {
   color: grey;
   margin:0.2em;
-}
-
-.clasificacion {
-  direction: rtl;
-  unicode-bidi: bidi-override;
-  float:left;
+  font-size: 20px;
 }
 
 label:hover,
@@ -191,102 +173,224 @@ input[type="radio"]:checked ~ label {
   color: orange;
 }
 
-/*---------------*/
-#comentar{
-    margin-left:200px;
+.comment {
+    margin: 0 auto;
+    float: right;
+    background-color: #E94F37;
+    font-family: 'Amatic SC', cursive;
+    font-size: 20px;
+    margin-bottom:5%;
 }
+
+/*----------- Comment Modal -------------*/
+
+
+.modal-header{
+    color:white;
+    background-color: black;
+}
+
+.modal-header h4{
+    font-family: 'Amatic SC', cursive;
+    font-size: 30px;
+}
+
+.modal-footer{
+    background-color: black;
+}
+
+.modal-content button{
+    font-family: 'Tajawal', sans-serif;
+}
+
+/*------------------ Information --------------------*/
+
+.restaurant-info {
+    display: inline-block;
+    position: relative;
+    margin:0 auto;
+    padding: 10%;
+    margin-left: 10%;
+    width: 30%;
+    text-align: center;
+}
+
+.restaurant-info h3{
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 20px;
+    font-family: 'Julius Sans One', sans-serif;
+    color: white;
+}
+
+.restaurant-info h2{
+    color: #E8E8E8;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 20px;
+    margin: 0 auto;
+}
+
+.restaurant-info p{
+    font-family: 'Tajawal', sans-serif;
+    color: #E8E8E8;
+    font-size: 20px;
+}
+
+
+.findus{
+    text-align: center;
+}
+
+.findus h1{
+    font-family: 'Amatic SC', cursive;
+    font-size: 30px;
+    color: white;
+    margin: 0 auto;
+}
+
+
+.borde{
+    border:1px solid white;
+    border-radius: 10px;
+    padding-left:2em;
+    padding-right:2em;
+    float:right;
+}
+
+
 
 </style>
 
 <body>
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/bienvenidos">TH</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a th:href="${'/showUserAccount'}">Perfil</a></li>
-                <li><a th:href="${'/logout'}">Logout</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<div class="jumbotron">
-    <hr/>
-    <h1>TengoHambre</h1>
-    <hr/>
-    <h2 th:text="${rest.name}"></h2>
-    <div class = "up">
-        <div id = "izquierda">
-            <img th:src="${'/files/' + rest.name + '.jpg'}" height= "400" width= "400" align="middle"/>
-            <p th:text="${rest.photo}"></p>
-            <table>
-                <th><p>Likes:</p></th>
-                <th><p th:text="${rest.likes}"></p></th>
-                <th> <a th:href="${'/like/' + rest.id}">Dar like</a> </th>
-            </table>
-        </div>
-
-        <div id = "derecha">
-            <h3>Informacion</h3>
-            <br/>
-            <table>
-                <th><h4>Telefono :</h4></th>
-                <th><h4 th:text="${rest.phone}"></h4></th>
-            </table>
-            <table>
-                <th><h4>Categoria:</h4></th>
-                <th><h4 th:text="${rest.category.nombre}"></h4></th>
-            </table>
-            <table>
-                <th><h4>Ciudad:</h4></th>
-                <th><h4 th:text="${rest.city.nombre}"></h4></th>
-            </table>
-
-            <h4>Descripcion:</h4> <p th:text="${rest.description}"></p>
-        </div>
-    </div>
-    <br/>
-    <hr/>
-    <div class = "down">
-        <h3>Comentarios:</h3>
-        <p th:each="comment : ${rest.comments}" >
-            <span th:text="${comment.text}"></span>
-            <br/>
-        </p>
-    </div>
-    <hr/>
-    <div id="comentar">
-        <form action="/comment" method="POST">
-            <h4>Realizar comentario:</h4>
-            <input type="hidden" name="restaurant" th:value="${rest.id}"></input>
-            <input type="hidden" name="user" th:value="${use.id}"></input>
-
-            <div class="clasificacion">
-                <input style="display: none;" id="radio1" type="radio" name="estrellas" th:value="5"/>
-                <label for="radio1">★</label>
-                <input style="display: none;" id="radio2" type="radio" name="estrellas" th:value="4"/>
-                <label for="radio2">★</label>
-                <input style="display: none;" id="radio3" type="radio" name="estrellas" th:value="3"/>
-                <label for="radio3">★</label>
-                <input style="display: none;" id="radio4" type="radio" name="estrellas" th:value="2"/>
-                <label for="radio4">★</label>
-                <input style="display: none;" id="radio5" type="radio" name="estrellas" th:value="1"/>
-                <label for="radio5">★</label>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/bienvenidos">TH</a>
             </div>
-            <br/>
-            <br/>
-            <textarea name="text" id="text" cols="30" rows="1"></textarea>
-            <br/>
-            <input id="bt-guardar" class="btn btn-ttc" type="submit" value="Guardar"/>
-        </form>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a th:href="${'/showUserAccount'}">Perfil</a></li>
+                    <li><a th:href="${'/logout'}">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="row">
+        <!-- Added side nav -->
+        <div class="col-sm-4">
+            <div class="contenido">
+                <hr/>
+                <h1 th:text="${rest.name}"></h1>
+                <hr/>
+                <img class="img-responsive" th:src="${'/files/' + rest.name + '.jpg'}"/>
+                <p th:text="${rest.photo}"></p>
+
+                <!-- likes -->
+                <div class="like-div">
+                    <label th:text="${rest.likes}"></label>
+                    <a th:href="${'/like/' + rest.id}"> <span class="glyphicon glyphicon-heart"></span> </a>
+
+
+                </div>
+                <!-- End likes -->
+
+                <!-- Comments -->
+                <div class = "comments">
+                    <h3>Comentarios:</h3>
+                    <p th:each="comment : ${rest.comments}" >
+                        <span th:text="${comment.text}"></span>
+                        <br/>
+                    </p>
+                </div>
+                <!-- End comments -->
+                <div class="comentar">
+                    <button class="btn comment" data-toggle="modal" data-target="#myModal">Comentar</button>
+                </div>
+            </div>
+
+        </div>
+        <!-- End side nav -->
+
+        <!-- Information Modal -->
+
+        <div class = "col-sm-3 restaurant-info">
+            <div class="borde">
+                <h3>Informacion</h3>
+                <h2>Teléfono</h2>
+                <p th:text="${rest.phone}"></p>
+                <h2>Categoría</h2>
+                <p th:text="${rest.category.nombre}"></p>
+                <h2>Ciudad</h2>
+                <p th:text="${rest.city.nombre}"></p>
+                <h2>Descripción</h2>
+                <p th:text="${rest.description}"></p>
+            </div>
+        </div>
+
+
+        <!-- End Information Modal -->
     </div>
-    <hr/>
-</div>
+
+    <!-- Map -->
+
+    <div class="findus">
+        <br/>
+        <br/>
+        <br/>
+        <h1>Donde encontrarnos:</h1>
+        <div id="googleMap" style="width:100%;height:400px;"></div>
+    </div>
+
+    <!-- End Map -->
+
+<!-- Comment modal -->
+
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">x</button>
+                    <h4 class="modal-title">Comentar</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="clasificacion">
+                        <input style="display: none;" id="radio1" type="radio" name="estrellas" th:value="5"/>
+                        <label for="radio1">★</label>
+                        <input style="display: none;" id="radio2" type="radio" name="estrellas" th:value="4"/>
+                        <label for="radio2">★</label>
+                        <input style="display: none;" id="radio3" type="radio" name="estrellas" th:value="3"/>
+                        <label for="radio3">★</label>
+                        <input style="display: none;" id="radio4" type="radio" name="estrellas" th:value="2"/>
+                        <label for="radio4">★</label>
+                        <input style="display: none;" id="radio5" type="radio" name="estrellas" th:value="1"/>
+                        <label for="radio5">★</label>
+                    </div>
+
+                    <form action="/comment" class="form-group" method="POST" >
+                        <input type="hidden" name="restaurant" th:value="${rest.id}"></input>
+                        <input type="hidden" name="user" th:value="${use.id}"></input>
+                        <textarea class="form-control" name="text" id="text" cols="30" rows="1"></textarea>
+                        <br/>
+                        <button class="btn btn-default" name="Submit" value="Login" type="Submit" th:text="Guardar"></button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+<!-- End comment modal -->
+
+
+
 </body>
 </html>
