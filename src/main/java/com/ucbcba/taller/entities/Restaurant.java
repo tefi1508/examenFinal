@@ -44,7 +44,7 @@ public class Restaurant {
     private City city;
 
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
-    List<Comment> comments;
+    private List<Comment> comments;
 
 
     public Integer getId() {

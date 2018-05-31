@@ -307,7 +307,7 @@ input[type="radio"]:checked ~ label {
                 <hr/>
                 <img class="img-responsive" th:src="${'/files/' + rest.name + '.jpg'}"/>
                 <p th:text="${rest.photo}"></p>
-
+                <h1  th:text="${estrellas}"></h1>
                 <!-- likes -->
                 <div class="like-div">
                     <label th:text="${rest.likes}"></label>
@@ -353,13 +353,6 @@ input[type="radio"]:checked ~ label {
 
         <!-- End Information Modal -->
     </div>
-
-    <!-- Map -->
-
-
-
-    <!-- End Map -->
-
 <!-- Comment modal -->
 
     <div id="myModal" class="modal fade" role="dialog">

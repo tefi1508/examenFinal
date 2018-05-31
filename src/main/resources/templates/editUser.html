@@ -164,49 +164,45 @@ h2{
     <h1>TengoHambre</h1>
     <hr/>
     <h2>Editar Usuario</h2>
-    <div id="editar">
-        <!--<form action="/restaurant" method="POST" enctype="multipart/form-data">-->
-            <!--<input type="hidden" name="id" th:value="${rest.id}"/>-->
-            <!--<input type="hidden" name="likes" th:value="${rest.likes}"/>-->
-            <!--<p>Ingrese nuevo nombre de restaurante:</p>-->
-            <!--<textarea name="name" th:text="${rest.name}" id="name" class="text" cols="30" rows="3">-->
-    <!--</textarea>-->
-            <!--<br/>-->
-            <!--<p>Ingrese nuevo telefono de restaurante:</p>-->
-            <!--<textarea name="phone" th:text="${rest.phone}" id="phone" class="text" cols="30" rows="3">-->
-    <!--</textarea>-->
-            <!--<br/>-->
-            <!--<p>Ingrese nueva descripción de restaurante:</p>-->
-            <!--<textarea name="description" th:text="${rest.description}" id="description" class="text" cols="30" rows="5">-->
-    <!--</textarea>-->
-            <!--<br/>-->
-            <!--<p>Seleccione tipo:</p>-->
-            <!--<select name="category" class="select">-->
-                <!--<option th:each="category : ${categories}"-->
-                        <!--th:value="${category.id}"-->
-                        <!--th:text="${category.nombre}"-->
-                        <!--th:selected="(${category.id} == ${rest.category.id})"></option>-->
-            <!--</select>-->
-            <!--<br/>-->
-            <!--<p>Seleccione ciudad:</p>-->
-            <!--<select name="city" class="select">-->
-                <!--<option th:each="city : ${cities}"-->
-                        <!--th:value="${city.id}"-->
-                        <!--th:text="${city.nombre}"-->
-                        <!--th:selected="(${city.id} == ${rest.city.id})"></option>-->
-            <!--</select>-->
 
+
+    <div id="editar">
+        <form action="/saveEdit" method="POST" enctype="multipart/form-data">
+
+            <input type="hidden" name="id" th:value="${user.id}"/>
+            <input type="hidden" name="admin" th:value="${user.admin}"/>
+            <input type="hidden" name="password" th:value="${user.password}"/>
+            <input type="hidden" name="passwordConfirm" th:value="${user.passwordConfirm}"/>
+            <input type="hidden" name="username" th:value="${user.username}"/>
+
+
+
+
+            <p>INGRESE NOMBRE USUARIO:</p>
+            <textarea name="name" th:text="${user.name}" id="name" class="text" cols="30" rows="3">
+             </textarea>
+            <br/>
+            <p>INGRESE APELLIDO USUARIO:</p>
+            <textarea name="lastName" th:text="${user.lastName}" id="lastName" class="text" cols="30" rows="3">
+             </textarea>
+            <br/>
+            <!--<p>IGRESE USERNAME:</p>-->
+            <!--<textarea name="username" th:text="${user.username}" id="username" class="text" cols="30" rows="5">-->
+             <!--</textarea>-->
             <!--<br/>-->
-            <!--<br/>-->
-            <!--<img th:src="${'/files/' + rest.name + '.jpg'}" height= "200" width= "200" />-->
-            <!--<div>-->
-                <!--<p>Cambiar foto:</p>-->
-                <!--<input type="file" name="file"/>-->
-            <!--</div>-->
-            <!--<br/>-->
-            <!--<br/>-->
-            <!--<input type="submit" value="Guardar" class="vermas"></input>-->
-        <!--</form>-->
+
+
+            <br/>
+            <br/>
+            <img th:src="${'/files/' + user.username + '.jpg'}" height= "200" width= "200" />
+            <div>
+                <p>Cambiar foto:</p>
+                <input type="file" name="file"/>
+            </div>
+            <br/>
+            <br/>
+            <input type="submit" value="Guardar" class="vermas"></input>
+        </form>
     </div>
 
 </div>

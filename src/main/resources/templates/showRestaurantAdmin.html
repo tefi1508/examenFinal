@@ -272,8 +272,9 @@ h2{
             <h1 th:text="${rest.name}"></h1>
             <hr/>
             <img class="img-responsive" th:src="${'/files/' + rest.name + '.jpg'}"/>
-            <p th:text="${rest.photo}"></p>
 
+            <p th:text="${rest.photo}"></p>
+            <h1  th:text="${estrellas}"></h1>
             <!-- likes -->
             <div class="like-div">
                 <label th:text="${rest.likes}"></label>

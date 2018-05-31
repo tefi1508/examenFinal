@@ -12,19 +12,25 @@ import java.util.Set;
 @Entity
 @Table(name = "user")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String username;
     private String password;
+    @Transient
     private String passwordConfirm;
     private String name;
     private String lastName;
     private Blob photo;
     private boolean admin=false;
+    @ManyToMany
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Comment> comments;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     public Long getId() {
         return id;
     }
@@ -49,7 +55,7 @@ public class User {
         this.password = password;
     }
 
-    @Transient
+
     public String getPasswordConfirm() {
         return passwordConfirm;
     }
@@ -58,8 +64,7 @@ public class User {
         this.passwordConfirm = passwordConfirm;
     }
 
-    @ManyToMany
-    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+
     public Set<Role> getRoles() {
         return roles;
     }
@@ -100,7 +105,6 @@ public class User {
         this.admin = admin;
     }
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     public List<Comment> getComments(){return comments;}
 
     public void setComments(List<Comment> comments){this.comments=comments;}
