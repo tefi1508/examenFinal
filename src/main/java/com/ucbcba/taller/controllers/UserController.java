@@ -45,6 +45,14 @@ public class UserController {
         return "redirect:/bienvenidos";
     }
 
+
+    @RequestMapping(value = "/saveEdit", method = RequestMethod.POST)
+    public String editUser(User user) {
+
+        userService.save(user);
+        return "redirect:/showUserAccount";
+    }
+
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(Model model, String error, String logout) {
         if (error != null)
