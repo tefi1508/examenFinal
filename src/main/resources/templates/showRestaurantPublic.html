@@ -4,49 +4,54 @@
 <head>
     <title>Show</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css?family=Advent+Pro" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Tajawal" rel="stylesheet"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3Pn5twRq0nGzwNJrbPFKIUhMmz7asH9s"> </script>
 <script>
     $(document).ready(function(){
             $("#myBtn").click(function(){
                 $("#myModal").modal();
             });
         });
+
+
+    function initMap() {
+        const lat = parseFloat(document.getElementById("lat").innerText);
+        const long = parseFloat(document.getElementById("long").innerText);
+        var uluru = {lat: lat, lng: long};
+        var map = new google.maps.Map(document.getElementById('googleMap'), {
+          zoom: 15,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+    }
+
+    google.maps.event.addDomListener(window, 'load', initMap);
+
 </script>
 
 <style>
 
 @import url('https://fonts.googleapis.com/css?family=Sacramento');
 
-.jumbotron {
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
     background: linear-gradient(#080708, #DD1C1A);
-    color: #ffffff;
-    diplay: inline-block;
-}
-
-.jumbotron h1 {
-    font-family: 'Sacramento', cursive;
-    text-align : center;
-}
-
-
-.jumbotron p {
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
-    font-size: 15px;
-    letter-spacing: 5px;
-    word-spacing: -3.6px;
-    font-variant: small-caps;
-}
-
-.thumbnail {
-    padding: 0 0 0 0;
-    border: none;
-    border-radius: 0;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .navbar {
@@ -117,75 +122,133 @@ h2{
     fot-size: 30px;
 }
 
-.up div{
+/*------------------ Information --------------------*/
+
+.restaurant-info {
     display: inline-block;
-    text-align:center;
-}
-
-.down p{
-    text-align:center;
-}
-
-.down h3{
-    margin-left:200px;
-    text-align:left;
-}
-
-#izquierda{
-    margin-top:0px;
-    margin-left:200px;
-    text-align:left;
-}
-
-#derecha{
-    margin-right:300px;
-    border:1px solid white;
-    border-radius: 10px;
-    float:right;
-    padding-left:2em;
-    padding-right:8em;
-}
-
-#derecha h3{
-    text-align:left;
-}
-
-#derecha h5{
-    text-align:left;
-}
-
-
-#derecha p{
-    text-align:center;
-}
-
-.modal-header, h4, .close {
-    font-family: 'Julius Sans One', sans-serif;
-    font-size: 20px !important;
-    letter-spacing: 4px;
-
-    background-color: black;
-    color:white !important;
+    position: relative;
+    margin:0 auto;
+    padding: 10%;
+    margin-left: 10%;
+    width: 30%;
     text-align: center;
+}
+
+.restaurant-info h3{
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 20px;
+    font-family: 'Julius Sans One', sans-serif;
+    color: white;
+}
+
+.restaurant-info h2{
+    color: #E8E8E8;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 20px;
+    margin: 0 auto;
+}
+
+.restaurant-info p{
+    font-family: 'Tajawal', sans-serif;
+    color: #E8E8E8;
     font-size: 20px;
 }
 
-.modal-footer {
+
+.findus{
+    text-align: center;
+}
+
+.findus h1{
+    font-family: 'Amatic SC', cursive;
+    font-size: 30px;
+    color: white;
+    margin: 0 auto;
+}
+
+
+.borde{
+    border:1px solid white;
+    border-radius: 10px;
+    padding-left:2em;
+    padding-right:2em;
+    float:right;
+}
+
+
+/*-------------------------- Restaurant Column -------------------*/
+
+.col-sm-4{
     background-color: black;
+    margin-left: 7%;
+    height: 100%;
+    color: white;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+
+
+    background-attachment: fixed;
 }
 
-.modal-footer a{
-    font-family: 'Julius Sans One', sans-serif;
-    font-size: 20px !important;
-    text-decoration: none;
-    letter-spacing: 4px;
-    color:white !important;
+.contenido {
+    margin-top: 15%;
 }
 
-.modal-footer a:hover{
-    color: #D2D4C8;
+.col-sm-4 h1 {
+    text-align : center;
+    text-transform: uppercase;
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 25px;
+    letter-spacing: 3px;
+    padding: 5px;
 }
 
+.img-responsive{
+    padding: 10px;
+    margin: auto;
+}
+
+.like-div{
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.like-div a{
+    color: #E94F37 !important;
+    margin: 0 auto;
+}
+
+.like-div label{
+    color: white;
+    font-weight: normal;
+    margin: 0 auto;
+}
+
+.like-div label:hover{
+    color: white;
+}
+
+.comments {
+    text-align:left;
+    padding: 10px;
+    font-size: 15px;
+    letter-spacing: 2px;
+    background-color:black;
+}
+
+.comments h3{
+    font-family: 'Amatic SC', cursive;
+}
+
+.comments p{
+    font-family: 'Tajawal', sans-serif;
+}
 </style>
 
 <body>
@@ -235,51 +298,74 @@ h2{
     </div>
 </div>
 
-<div class="jumbotron">
-    <hr/>
-    <h1>TengoHambre</h1>
-    <hr/>
-    <h2 th:text="${rest.name}"></h2>
-    <h1  th:text="${estrellas}"></h1>
-    <div class = "up">
-        <div id = "izquierda">
-            <img th:src="${'/files/' + rest.name + '.jpg'}" height= "400" width= "400" align="middle"/>
+
+<div class="row">
+    <!-- Added side nav -->
+    <div class="col-sm-4">
+        <div class="contenido">
+            <hr/>
+            <h1 th:text="${rest.name}"></h1>
+            <hr/>
+            <img class="img-responsive" th:src="${'/files/' + rest.name + '.jpg'}"/>
+      
             <p th:text="${rest.photo}"></p>
-            <table>
-                <th><p>Likes:</p></th>
-                <th><p th:text="${rest.likes}"></p></th>
-            </table>
+            <h1  th:text="${estrellas}"></h1>
+
+            <!-- likes -->
+            <div class="like-div">
+                <label th:text="${rest.likes}"></label>
+                <a><span class="glyphicon glyphicon-heart"></span> </a>
+             </div>
+            <!-- End likes -->
+
+            <!-- Comments -->
+            <div class = "comments">
+                <h3>Comentarios:</h3>
+                <p th:each="comment : ${rest.comments}" >
+                    <span th:text="${comment.text}"></span>
+                    <br/>
+                </p>
+            </div>
+            <!-- End comments -->
         </div>
 
-        <div id = "derecha">
+    </div>
+    <!-- End side nav -->
+
+    <!-- Information Modal -->
+
+    <div class = "col-sm-3 restaurant-info">
+        <div class="borde">
             <h3>Informacion</h3>
-            <br/>
-            <table>
-                <th><h5>Telefono :</h5></th>
-                <th><h5 th:text="${rest.phone}"></h5></th>
-            </table>
-            <table>
-                <th><h5>Categoria:</h5></th>
-                <th><h5 th:text="${rest.category.nombre}"></h5></th>
-            </table>
-            <table>
-                <th><h5>Ciudad:</h5></th>
-                <th><h5 th:text="${rest.city.nombre}"></h5></th>
-            </table>
-
-            <h5>Descripcion:</h5> <p th:text="${rest.description}"></p>
+            <h2>Teléfono</h2>
+            <p th:text="${rest.phone}"></p>
+            <h2>Categoría</h2>
+            <p th:text="${rest.category.nombre}"></p>
+            <h2>Ciudad</h2>
+            <p th:text="${rest.city.nombre}"></p>
+            <h2>Descripción</h2>
+            <p th:text="${rest.description}"></p>
         </div>
     </div>
-    <br/>
-    <hr/>
-    <div class = "down">
-        <h3>Comentarios:</h3>
-        <p th:each="comment : ${rest.comments}" >
-            <span th:text="${comment.text}"></span>
-            <br/>
-        </p>
-    </div>
-    <hr/>
+
+
+    <!-- End Information Modal -->
 </div>
+
+<!-- Map -->
+
+<div class="findus">
+    <br/>
+
+    <h1>Donde encontrarnos:</h1>
+    <br/>
+    <br/>
+    <label id="lat" th:text="${rest.latitude}" class="hidden"></label>
+    <label id="long" th:text="${rest.longitud}" class="hidden"></label>
+    <div id="googleMap" style="width:100%;height:400px;"></div>
+
+</div>
+
+
 </body>
 </html>

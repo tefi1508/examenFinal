@@ -325,7 +325,7 @@ public class RestaurantContoller {
             }
         }
         model.addAttribute("restList", aux);
-        return "showRestaurantsUser";
+        return "showRestaurantsPublic";
     }
 
     @RequestMapping(value="/categorysearch/{category_id}")
