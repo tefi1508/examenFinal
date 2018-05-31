@@ -365,20 +365,19 @@ input[type="radio"]:checked ~ label {
                     <h4 class="modal-title">Comentar</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="clasificacion">
-                        <input style="display: none;" id="radio1" type="radio" name="estrellas" th:value="5"/>
-                        <label for="radio1">★</label>
-                        <input style="display: none;" id="radio2" type="radio" name="estrellas" th:value="4"/>
-                        <label for="radio2">★</label>
-                        <input style="display: none;" id="radio3" type="radio" name="estrellas" th:value="3"/>
-                        <label for="radio3">★</label>
-                        <input style="display: none;" id="radio4" type="radio" name="estrellas" th:value="2"/>
-                        <label for="radio4">★</label>
-                        <input style="display: none;" id="radio5" type="radio" name="estrellas" th:value="1"/>
-                        <label for="radio5">★</label>
-                    </div>
-
                     <form action="/comment" class="form-group" method="POST" >
+                        <div class="clasificacion">
+                            <input style="display: none;" id="radio1" type="radio" name="estrellas" th:value="5"/>
+                            <label for="radio1">★</label>
+                            <input style="display: none;" id="radio2" type="radio" name="estrellas" th:value="4"/>
+                            <label for="radio2">★</label>
+                            <input style="display: none;" id="radio3" type="radio" name="estrellas" th:value="3"/>
+                            <label for="radio3">★</label>
+                            <input style="display: none;" id="radio4" type="radio" name="estrellas" th:value="2"/>
+                            <label for="radio4">★</label>
+                            <input style="display: none;" id="radio5" type="radio" name="estrellas" th:value="1"/>
+                            <label for="radio5">★</label>
+                        </div>
                         <input type="hidden" name="restaurant" th:value="${rest.id}"></input>
                         <input type="hidden" name="user" th:value="${use.id}"></input>
                         <textarea class="form-control" name="text" id="text" cols="30" rows="1"></textarea>
@@ -401,8 +400,8 @@ input[type="radio"]:checked ~ label {
         <h1>Donde encontrarnos:</h1>
         <br/>
         <br/>
-        <label id="lat" th:text="${rest.latitude}"></label>
-        <label id="long" th:text="${rest.longitud}"></label>
+        <label id="lat" th:text="${rest.latitude}" class="hidden"></label>
+        <label id="long" th:text="${rest.longitud}" class="hidden"></label>
         <div id="googleMap" style="width:100%;height:400px;"></div>
 
     </div>

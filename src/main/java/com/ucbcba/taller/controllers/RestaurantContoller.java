@@ -158,7 +158,7 @@ public class RestaurantContoller {
 
 
         model.addAttribute("comment",new Comment(rest,user));
-        model.addAttribute("user", user);
+        model.addAttribute("use", user);
         return "showRestaurant";
     }
 
@@ -206,6 +206,7 @@ public class RestaurantContoller {
         model.addAttribute("rest", rest);
 
         int tam=rest.getComments().size();
+
         int cont=0;
         int rankin=0;
         String estrellas="★";
@@ -234,7 +235,6 @@ public class RestaurantContoller {
         }
 
         model.addAttribute("estrellas",estrellas );
-
         return "showRestaurantAdmin";
     }
 
