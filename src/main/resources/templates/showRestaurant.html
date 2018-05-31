@@ -132,6 +132,7 @@ body {
     padding: 10px;
     font-size: 15px;
     letter-spacing: 2px;
+    background-color:black;
 }
 
 .comments h3{
@@ -178,6 +179,7 @@ input[type="radio"]:checked ~ label {
     background-color: #E94F37;
     font-family: 'Amatic SC', cursive;
     font-size: 20px;
+    margin-bottom:5%;
 }
 
 /*----------- Comment Modal -------------*/
@@ -205,12 +207,12 @@ input[type="radio"]:checked ~ label {
 
 .restaurant-info {
     display: inline-block;
-    text-align:center;
     position: relative;
     margin:0 auto;
     padding: 10%;
-    background-color: black;
-    width: 100%;
+    margin-left: 10%;
+    width: 30%;
+    text-align: center;
 }
 
 .restaurant-info h3{
@@ -234,21 +236,6 @@ input[type="radio"]:checked ~ label {
     font-size: 20px;
 }
 
-.more-info{
-    float: right;
-    color: white;
-    padding: 10px;
-}
-
-.exit:hover{
-    color: #E94F37;
-}
-
-.exit{
-    float: right;
-    color: white;
-    padding: 10px;
-}
 
 .findus{
     text-align: center;
@@ -260,6 +247,17 @@ input[type="radio"]:checked ~ label {
     color: white;
     margin: 0 auto;
 }
+
+
+.borde{
+    border:1px solid white;
+    border-radius: 10px;
+    padding-left:2em;
+    padding-right:2em;
+    float:right;
+}
+
+
 
 </style>
 
@@ -281,42 +279,61 @@ input[type="radio"]:checked ~ label {
         </div>
     </nav>
 
-<!-- Added side nav -->
-    <div class="col-sm-4">
-        <div class="contenido">
-            <hr/>
-            <h1 th:text="${rest.name}"></h1>
-            <hr/>
-            <img class="img-responsive" th:src="${'/files/' + rest.name + '.jpg'}"/>
-            <p th:text="${rest.photo}"></p>
+    <div class="row">
+        <!-- Added side nav -->
+        <div class="col-sm-4">
+            <div class="contenido">
+                <hr/>
+                <h1 th:text="${rest.name}"></h1>
+                <hr/>
+                <img class="img-responsive" th:src="${'/files/' + rest.name + '.jpg'}"/>
+                <p th:text="${rest.photo}"></p>
 
-            <!-- likes -->
-            <div class="like-div">
-                <label th:text="${rest.likes}"></label>
-                <a th:href="${'/like/' + rest.id}"> <span class="glyphicon glyphicon-heart"></span> </a>
+                <!-- likes -->
+                <div class="like-div">
+                    <label th:text="${rest.likes}"></label>
+                    <a th:href="${'/like/' + rest.id}"> <span class="glyphicon glyphicon-heart"></span> </a>
 
-                <a class="more-info" data-toggle="modal" data-target="#infModal">
-                    <span class="glyphicon glyphicon-option-horizontal"></span>
-                </a>
+
+                </div>
+                <!-- End likes -->
+
+                <!-- Comments -->
+                <div class = "comments">
+                    <h3>Comentarios:</h3>
+                    <p th:each="comment : ${rest.comments}" >
+                        <span th:text="${comment.text}"></span>
+                        <br/>
+                    </p>
+                </div>
+                <!-- End comments -->
+                <div class="comentar">
+                    <button class="btn comment" data-toggle="modal" data-target="#myModal">Comentar</button>
+                </div>
             </div>
-            <!-- End likes -->
 
-            <!-- Comments -->
-            <div class = "comments">
-                <h3>Comentarios:</h3>
-                <p th:each="comment : ${rest.comments}" >
-                    <span th:text="${comment.text}"></span>
-                    <br/>
-                </p>
-            </div>
-            <!-- End comments -->
-            <div class="comentar">
-                <button class="btn comment" data-toggle="modal" data-target="#myModal">Comentar</button>
+        </div>
+        <!-- End side nav -->
+
+        <!-- Information Modal -->
+
+        <div class = "col-sm-3 restaurant-info">
+            <div class="borde">
+                <h3>Informacion</h3>
+                <h2>Teléfono</h2>
+                <p th:text="${rest.phone}"></p>
+                <h2>Categoría</h2>
+                <p th:text="${rest.category.nombre}"></p>
+                <h2>Ciudad</h2>
+                <p th:text="${rest.city.nombre}"></p>
+                <h2>Descripción</h2>
+                <p th:text="${rest.description}"></p>
             </div>
         </div>
 
+
+        <!-- End Information Modal -->
     </div>
-<!-- End side nav -->
 
     <!-- Map -->
 
@@ -373,30 +390,7 @@ input[type="radio"]:checked ~ label {
 
 <!-- End comment modal -->
 
-<!-- Information Modal -->
 
-    <div id="infModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-                <div class = "restaurant-info">
-                    <h3>Informacion</h3>
-                    <h2>Teléfono</h2>
-                    <p th:text="${rest.phone}"></p>
-                    <h2>Categoría</h2>
-                    <p th:text="${rest.category.nombre}"></p>
-                    <h2>Ciudad</h2>
-                    <p th:text="${rest.city.nombre}"></p>
-                    <h2>Descripción</h2>
-                    <p th:text="${rest.description}"></p>
-                    <a class="exit" data-dismiss="modal">
-                        <span class="glyphicon glyphicon-log-out"></span>
-                    </a>
-                </div>
-
-        </div>
-    </div>
-
-
-<!-- End Information Modal -->
 
 </body>
 </html>
