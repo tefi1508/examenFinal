@@ -20,7 +20,7 @@ public class Comment {
     private Integer estrellas;
 
     @ManyToOne
-    @JoinColumn(name= "restauran_id")
+    @JoinColumn(name= "restaurant_id")
     private Restaurant restaurant;
 
     @ManyToOne

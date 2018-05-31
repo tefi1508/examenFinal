@@ -221,6 +221,9 @@ input[type="radio"]:checked ~ label {
     <h1>TengoHambre</h1>
     <hr/>
     <h2 th:text="${rest.name}"></h2>
+
+    <h1  th:text="${estrellas}"></h1>
+
     <div class = "up">
         <div id = "izquierda">
             <img th:src="${'/files/' + rest.name + '.jpg'}" height= "400" width= "400" align="middle"/>
@@ -264,8 +267,8 @@ input[type="radio"]:checked ~ label {
     <div id="comentar">
         <form action="/comment" method="POST">
             <h4>Realizar comentario:</h4>
-            <input type="hidden" name="restaurant" th:value="${rest.id}"></input>
-            <input type="hidden" name="user" th:value="${use.id}"></input>
+            <input type="hidden" name="restaurant" th:value="${rest.id}"/>
+            <input type="hidden" name="user" th:value="${user.id}"/>
 
             <div class="clasificacion">
                 <input style="display: none;" id="radio1" type="radio" name="estrellas" th:value="5"/>
