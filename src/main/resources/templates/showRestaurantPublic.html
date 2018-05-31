@@ -19,8 +19,11 @@
             });
         });
 
+
     function initMap() {
-        var uluru = {lat: -17.373320, lng: -66.152807};
+        const lat = parseFloat(document.getElementById("lat").innerText);
+        const long = parseFloat(document.getElementById("long").innerText);
+        var uluru = {lat: lat, lng: long};
         var map = new google.maps.Map(document.getElementById('googleMap'), {
           zoom: 15,
           center: uluru
@@ -351,8 +354,13 @@ h2{
 <!-- Map -->
 
 <div class="findus">
+    <br/>
 
     <h1>Donde encontrarnos:</h1>
+    <br/>
+    <br/>
+    <label id="lat" th:text="${rest.latitude}" class="hidden"></label>
+    <label id="long" th:text="${rest.longitud}" class="hidden"></label>
     <div id="googleMap" style="width:100%;height:400px;"></div>
 
 </div>
