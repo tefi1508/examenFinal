@@ -27,6 +27,10 @@ public class Restaurant {
 
     private Integer likes=0;
 
+    private Float latitude;
+
+    private Float longitud;
+
     @OneToMany
     @JoinColumn(name = "user_id")
     private List<User> userslikes;
@@ -110,6 +114,23 @@ public class Restaurant {
     public void addLikke(User user){
         userslikes.add(user);
     }
+
+    public Float getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Float latitude) {
+        this.latitude = latitude;
+    }
+
+    public Float getLongitud() {
+        return longitud;
+    }
+
+    public void setLongitud(Float longitud) {
+        this.longitud= longitud;
+    }
+
 
     public boolean findUserLike(User user){
         for (User user1 : userslikes) {
