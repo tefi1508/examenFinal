@@ -64,6 +64,14 @@ public class UserController {
         return "showUser";
     }
 
+    @RequestMapping("/editUserAccount")
+    String editUser(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findByUsername(auth.getName());
+        model.addAttribute("user", user);
+        return "editUser";
+    }
+
     @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
     public String welcome(Model model) {
         return "welcome";

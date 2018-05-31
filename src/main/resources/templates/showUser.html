@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>ShowUser</title>
+    <title>Show</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet"/>
@@ -95,7 +95,7 @@ h2{
 }
 
 .text {
-  background-color: #0000007d;
+  background-color: black;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 20px;
   color: white;
@@ -108,31 +108,62 @@ h2{
     fot-size: 30px;
 }
 
-#editar{
+.up div{
+    display: inline-block;
+    text-align:center;
+}
+
+.down p{
+    text-align:center;
+}
+
+.down h3{
     margin-left:200px;
+    text-align:left;
 }
 
-.text{
-    color: white;
-    font-weight: bold;
+#izquierda{
+    margin-top:0px;
+    margin-left:200px;
+    text-align:left;
 }
 
-.vermas{
-    padding: 10px 25px;
-    color: white;
-    font-size: 20px;
-    background-color: black;
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
-    font-variant: small-caps;
-    border: none;
+#derecha{
+    margin-right:300px;
+    border:1px solid white;
+    border-radius: 10px;
+    float:right;
+    padding-left:2em;
+    padding-right:8em;
 }
 
-.vermas:hover {
-    color: #D2D4C8 !important;
-    text-decoration: none;
+#derecha h3{
+    text-align:left;
 }
+
+#derecha h4{
+    text-align:left;
+}
+
+
+#derecha p{
+    text-align:center;
+}
+
+
+label:hover,
+label:hover ~ label {
+  color: orange;
+}
+
+input[type="radio"]:checked ~ label {
+  color: orange;
+}
+
+
 
 </style>
+
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -150,14 +181,53 @@ h2{
         </div>
     </div>
 </nav>
+
 <div class="jumbotron">
     <hr/>
-    <h2>Usuario</h2>
-    <div id="editar">
-        <b>Id:</b> <p th:text="${user.id}"></p>
-        <b>Cuenta:</b> <p th:text="${user.username}"></p>
-        <b>Nombre:</b> <p th:text="${user.name}"></p>
-        <b>Apellido:</b> <p th:text="${user.lastName}"></p>
+    <h1>TengoHambre</h1>
+    <hr/>
+    <h2 th:text="${user.username}"></h2>
+    <div class = "up">
+        <div id = "izquierda">
+            <img th:src="${'/files/' + user.username + '.jpg'}" height= "400" width= "400" align="middle"/>
+            <p th:text="${user.photo}"></p>
+            <!--<table>-->
+                <!--<th><p>Likes:</p></th>-->
+                <!--<th><p th:text="${rest.likes}"></p></th>-->
+            <!--</table>-->
+        </div>
+
+        <div id = "derecha">
+            <h3>Informacion</h3>
+            <br/>
+            <table>
+                <th><h4>Nombre:</h4></th>
+                <th><h4 th:text="${user.name}"></h4></th>
+            </table>
+            <table>
+                <th><h4>Apellido:</h4></th>
+                <th><h4 th:text="${user.lastName}"></h4></th>
+            </table>
+            <td>
+                <a th:href="${'/editUserAccount'}">Editar</a>
+
+            </td>
+            <!--<table>-->
+                <!--<th><h4>Ciudad:</h4></th>-->
+                <!--<th><h4 th:text="${rest.city.nombre}"></h4></th>-->
+            <!--</table>-->
+
+            <!--<h4>Descripcion:</h4> <p th:text="${rest.description}"></p>-->
+        </div>
+    </div>
+    <br/>
+    <hr/>
+    <div class = "down">
+        <h3>Comentarios:</h3>
+        <!--<p th:each="comment : ${user.comments}" >-->
+            <!--<span th:text="${comment.text}"></span>-->
+            <!--<br/>-->
+        <!--</p>-->
     </div>
     <hr/>
 </div>

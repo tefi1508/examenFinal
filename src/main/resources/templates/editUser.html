@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Restaurants</title>
+    <title>Show</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet"/>
@@ -18,20 +18,18 @@
 .jumbotron {
     background: linear-gradient(#080708, #DD1C1A);
     color: #ffffff;
-    margin-bottom: 0%;
-}
-
-body {
-    background: linear-gradient(#DD1C1A, #080708);
+    diplay: inline-block;
 }
 
 .jumbotron h1 {
     font-family: 'Sacramento', cursive;
+    text-align : center;
 }
+
 
 .jumbotron p {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
-    font-size: 20px;
+    font-size: 15px;
     letter-spacing: 5px;
     word-spacing: -3.6px;
     font-variant: small-caps;
@@ -79,10 +77,11 @@ h2{
     margin-top:3%;
     margin-bottom:3%;
     font-family: "Trebuchet MS", Helvetica, sans-serif;
-    font-size: 20px;
+    font-size: 30px;
     letter-spacing: 5px;
     word-spacing: -3.6px;
     font-variant: small-caps;
+    margin-left:200px;
 }
 
 .middle {
@@ -97,7 +96,7 @@ h2{
 }
 
 .text {
-  background-color: black;
+  background-color: #0000007d;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 20px;
   color: white;
@@ -107,100 +106,42 @@ h2{
 
 .navbar-brand{
     font-family: 'Julius Sans One', sans-serif;
-    font-size: 30px;
-}
-
-
-/*-----Lista Restaurant------*/
-
-.navbar-brand{
-    font-family: 'Julius Sans One', sans-serif;
     fot-size: 30px;
 }
 
-table {
-    border-radius: 5px;
-    width: 50%;
-    margin: 0px auto;
-    float: none;
-    font-family: 'Tajawal', sans-serif;
-    letter-spacing: 3px;
-    font-size: 18px;
+#editar{
+    margin-left:200px;
 }
 
-th, td {
-    text-align: left;
-    padding: 8px;
-    background-color: #7d1312;
-    font-weight: normal;
-}
-
-th {
-    text-align: center;
-    background-color: #560000;
+.text{
     color: white;
+    font-weight: bold;
 }
 
-
-/*----Categorias--*/
-
-.dropdown, .dropup {
-    display: inline-block;
+.select{
+    color: black;
+    font-weight: bold;
 }
 
-
-.dropdown-menu li a{
+.vermas{
+    padding: 10px 25px;
+    color: white;
+    font-size: 20px;
     background-color: black;
-    font-family: 'Tajawal', sans-serif;
-    font-size:15px;
-    letter-spacing: 3px;
-    color:white;
-    filter: alpha(opacity=50);
-}
-
-#bt-categoria{
-
-    background-color: black;
-    background: rgba(0, 0, 0, 0.5);
-    color:white;
-
-    font-family: 'Julius Sans One', sans-serif;
-    letter-spacing: 4px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-variant: small-caps;
     border: none;
 }
 
-tr > .center-glyph{
-    text-align: center;
-}
-
-.center-glyph a{
-    color: white;
-}
-
-.center-glyph a:hover{
+.vermas:hover {
     color: #D2D4C8 !important;
+    text-decoration: none;
 }
 
-.plus{
-    color: white;
-}
-
-.plus :hover{
-    color: #D2D4C8 !important;
-}
-
-label{
-    margin-top:3%;
-    font-family: 'Tajawal', sans-serif;
-    font-weight: normal;
-    font-size: 18px;
-    letter-spacing: 3px;
-}
 
 </style>
 
 <body>
-
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -218,67 +159,56 @@ label{
     </div>
 </nav>
 
-<div class="jumbotron text-center">
+<div class="jumbotron">
+    <hr/>
     <h1>TengoHambre</h1>
-    <h2>Restaurantes</h2>
+    <hr/>
+    <h2>Editar Usuario</h2>
+    <div id="editar">
+        <!--<form action="/restaurant" method="POST" enctype="multipart/form-data">-->
+            <!--<input type="hidden" name="id" th:value="${rest.id}"/>-->
+            <!--<input type="hidden" name="likes" th:value="${rest.likes}"/>-->
+            <!--<p>Ingrese nuevo nombre de restaurante:</p>-->
+            <!--<textarea name="name" th:text="${rest.name}" id="name" class="text" cols="30" rows="3">-->
+    <!--</textarea>-->
+            <!--<br/>-->
+            <!--<p>Ingrese nuevo telefono de restaurante:</p>-->
+            <!--<textarea name="phone" th:text="${rest.phone}" id="phone" class="text" cols="30" rows="3">-->
+    <!--</textarea>-->
+            <!--<br/>-->
+            <!--<p>Ingrese nueva descripción de restaurante:</p>-->
+            <!--<textarea name="description" th:text="${rest.description}" id="description" class="text" cols="30" rows="5">-->
+    <!--</textarea>-->
+            <!--<br/>-->
+            <!--<p>Seleccione tipo:</p>-->
+            <!--<select name="category" class="select">-->
+                <!--<option th:each="category : ${categories}"-->
+                        <!--th:value="${category.id}"-->
+                        <!--th:text="${category.nombre}"-->
+                        <!--th:selected="(${category.id} == ${rest.category.id})"></option>-->
+            <!--</select>-->
+            <!--<br/>-->
+            <!--<p>Seleccione ciudad:</p>-->
+            <!--<select name="city" class="select">-->
+                <!--<option th:each="city : ${cities}"-->
+                        <!--th:value="${city.id}"-->
+                        <!--th:text="${city.nombre}"-->
+                        <!--th:selected="(${city.id} == ${rest.city.id})"></option>-->
+            <!--</select>-->
 
-
-    <div class="dropdown">
-        <button id="bt-categoria" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Categorias
-            <span class="caret"></span></button>
-        <ul class="dropdown-menu">
-            <li><a href="/usercategorysearch/100">Pizza</a></li>
-            <li><a href="/usercategorysearch/101">Comida Rapida</a></li>
-            <li><a href="/usercategorysearch/102">Heladeria</a></li>
-            <li><a href="/usercategorysearch/103">Comidas exóticas</a></li>
-            <li><a href="/usercategorysearch/104">Pastas</a></li>
-
-        </ul>
+            <!--<br/>-->
+            <!--<br/>-->
+            <!--<img th:src="${'/files/' + rest.name + '.jpg'}" height= "200" width= "200" />-->
+            <!--<div>-->
+                <!--<p>Cambiar foto:</p>-->
+                <!--<input type="file" name="file"/>-->
+            <!--</div>-->
+            <!--<br/>-->
+            <!--<br/>-->
+            <!--<input type="submit" value="Guardar" class="vermas"></input>-->
+        <!--</form>-->
     </div>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-
-<div id="tabla">
-    <table>
-        <tr>
-            <th>
-                Nombre
-            </th>
-            <th>
-                Telefono
-            </th>
-            <th>
-                Categoria
-            </th>
-
-            <th>
-                Opciones
-            </th>
-        </tr>
-
-        <tr th:each="restaurant : ${restList}">
-            <td th:text="${restaurant.name}">
-            </td>
-            <td th:text="${restaurant.phone}">
-            </td>
-            <td th:text="${restaurant.category.nombre}">
-            </td>
-            <td class="center-glyph">
-                <a th:href="${'/showRestaurantAdmin/' + restaurant.id}"><span class="glyphicon glyphicon-arrow-right "></span></a>
-                <a th:href="${'/editRestaurant/' + restaurant.id}"><span class="glyphicon glyphicon-pencil"></span></a>
-                <a th:href="${'/deleteRestaurant/' + restaurant.id}"><span class="glyphicon glyphicon-trash"></span></a>
-            </td>
-
-        </tr>
-
-    </table>
-    <label>Añadir restaurant     </label>
-    <a href="/newRestaurant" class="plus"><span class="glyphicon glyphicon-plus"></span></a>
-</div>
 
 </div>
-
 </body>
 </html>
