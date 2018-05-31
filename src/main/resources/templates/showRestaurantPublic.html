@@ -10,13 +10,28 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3Pn5twRq0nGzwNJrbPFKIUhMmz7asH9s"> </script>
 <script>
     $(document).ready(function(){
             $("#myBtn").click(function(){
                 $("#myModal").modal();
             });
         });
+
+    function initMap() {
+        var uluru = {lat: -17.373320, lng: -66.152807};
+        var map = new google.maps.Map(document.getElementById('googleMap'), {
+          zoom: 15,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+    }
+
+    google.maps.event.addDomListener(window, 'load', initMap);
+
 </script>
 
 <style>
@@ -185,7 +200,6 @@ h2{
 .modal-footer a:hover{
     color: #D2D4C8;
 }
-
 </style>
 
 <body>
@@ -279,6 +293,7 @@ h2{
         </p>
     </div>
     <hr/>
+    <div id="googleMap" style="width:100%;height:400px;"> </div>
 </div>
 </body>
 </html>
