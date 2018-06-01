@@ -245,7 +245,7 @@ public class RestaurantContoller {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findByUsername(auth.getName());
         if(user.isAdmin()){
-            return "showRestaurantAdmin";
+            return "redirect:/showRestaurantAdmin/"+id;
         }
         else{
             return "redirect:/showRestaurant/"+id;

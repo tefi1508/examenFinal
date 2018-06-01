@@ -69,8 +69,35 @@ public class UserController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findByUsername(auth.getName());
         model.addAttribute("user", user);
-        return "showUser";
+        if (user.isAdmin()){
+            return "showAdmin";
+        }
+        else {
+            return "showUser";
+        }
     }
+
+    @RequestMapping("/showUserFromComment/{username}")
+    String showUserFC(@PathVariable String username,Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findByUsername(auth.getName());
+        User use=userService.findByUsername(username);
+        if(user.getId()==use.getId()){
+            return "redirect:/showUserAccount";
+        }
+        else{
+            model.addAttribute("user", use);
+            return "showOtherUser";
+        }
+    }
+
+    @RequestMapping("/showUserFromCommentPublic/{username}")
+    String showUserFCP(@PathVariable String username,Model model) {
+        User use=userService.findByUsername(username);
+        model.addAttribute("user", use);
+        return "showUserPublic";
+    }
+
 
     @RequestMapping("/editUserAccount")
     String editUser(Model model) {

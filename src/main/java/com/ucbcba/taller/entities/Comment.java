@@ -58,4 +58,6 @@ public class Comment {
     public void setEstrellas(Integer estrellas) {
         this.estrellas = estrellas;
     }
+
+
 }

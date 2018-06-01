@@ -176,7 +176,7 @@ input[type="radio"]:checked ~ label {
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
-                <!--<li><a th:href="${'/showUserAccount'}">Perfil</a></li>-->
+                <li><a th:href="${'/showUserAccount'}">Perfil</a></li>
                 <li><a th:href="${'/logout'}">Logout</a></li>
             </ul>
         </div>
@@ -193,8 +193,8 @@ input[type="radio"]:checked ~ label {
             <img th:src="${'/files/' + user.username + '.jpg'}" height= "400" width= "400" align="middle"/>
             <p th:text="${user.photo}"></p>
             <!--<table>-->
-                <!--<th><p>Likes:</p></th>-->
-                <!--<th><p th:text="${rest.likes}"></p></th>-->
+            <!--<th><p>Likes:</p></th>-->
+            <!--<th><p th:text="${rest.likes}"></p></th>-->
             <!--</table>-->
         </div>
 
@@ -209,13 +209,10 @@ input[type="radio"]:checked ~ label {
                 <th><h4>Apellido:</h4></th>
                 <th><h4 th:text="${user.lastName}"></h4></th>
             </table>
-            <td>
-                <a th:href="${'/editUserAccount'}">Editar</a>
 
-            </td>
             <!--<table>-->
-                <!--<th><h4>Ciudad:</h4></th>-->
-                <!--<th><h4 th:text="${rest.city.nombre}"></h4></th>-->
+            <!--<th><h4>Ciudad:</h4></th>-->
+            <!--<th><h4 th:text="${rest.city.nombre}"></h4></th>-->
             <!--</table>-->
 
             <!--<h4>Descripcion:</h4> <p th:text="${rest.description}"></p>-->
@@ -226,10 +223,10 @@ input[type="radio"]:checked ~ label {
     <div class = "down">
         <h3>Comentarios:</h3>
         <p th:each="comment : ${user.comments}" >
-        <span th:text="${comment.restaurant.name}"></span>
-        <span th:text="${comment.text}"></span>
-        <br/>
-    </p>
+            <span th:text="${comment.restaurant.name}"></span>
+            <span th:text="${comment.text}"></span>
+            <br/>
+        </p>
     </div>
     <hr/>
 </div>

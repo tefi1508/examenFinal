@@ -347,8 +347,12 @@ input[type="radio"]:checked ~ label {
                 <div class = "comments">
                     <h3>Comentarios:</h3>
                     <p th:each="comment : ${rest.comments}" >
+                        <span th:text="${comment.user.username}"></span>
                         <span th:text="${comment.text}"></span>
+                        <a th:href="${'/showUserFromComment/'+comment.user.username}">Ver perfil</a>
+                        <!--<span th:text="${comment.user.name}"></span>-->
                         <br/>
+
                     </p>
                 </div>
                 <!-- End comments -->
