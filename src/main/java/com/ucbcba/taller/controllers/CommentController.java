@@ -2,10 +2,13 @@ package com.ucbcba.taller.controllers;
 
 
 import com.ucbcba.taller.entities.Comment;
+import com.ucbcba.taller.entities.User;
 import com.ucbcba.taller.services.CommentService;
 import com.ucbcba.taller.services.RestaurantService;
 import com.ucbcba.taller.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -42,6 +45,9 @@ public class CommentController {
             return "showRestaurant";
         }*/
 //        System.out.println("Restaurante Id: " +comment.getRestaurant().getId());
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findByUsername(auth.getName());
+        comment.setUser(user);
         if (comment.getUser()== null){
             System.out.println("Error");
 
