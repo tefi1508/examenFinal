@@ -257,6 +257,9 @@ label{
             <th>
                 Opciones
             </th>
+            <th>
+                <a class="rankin" href="">★↑</a>
+            </th>
         </tr>
 
         <tr th:each="restaurant : ${restList}">
@@ -270,6 +273,9 @@ label{
                 <a th:href="${'/showRestaurantAdmin/' + restaurant.id}"><span class="glyphicon glyphicon-arrow-right "></span></a>
                 <a th:href="${'/editRestaurant/' + restaurant.id}"><span class="glyphicon glyphicon-pencil"></span></a>
                 <a th:href="${'/deleteRestaurant/' + restaurant.id}"><span class="glyphicon glyphicon-trash"></span></a>
+            </td>
+            </td>
+            <td th:text="${restaurant.rankin}">
             </td>
 
         </tr>
