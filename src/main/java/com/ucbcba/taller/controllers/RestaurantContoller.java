@@ -52,6 +52,37 @@ public class RestaurantContoller {
     @Autowired
     private UploadFileService uploadFileService;
 
+    String calcularRankin(Restaurant rest){
+        int tam=rest.getComments().size();
+        int cont=0;
+        int rankin=0;
+        String estrellas="★";
+        if (tam>0)
+        {
+            for (Comment c : rest.getComments())
+            {
+                cont = cont + c.getEstrellas();
+            }
+            rankin=cont/tam;
+        }
+        if (rankin == 1){
+            estrellas="★";
+        }
+        if (rankin == 2){
+            estrellas="★ ★";
+        }
+        if (rankin == 3){
+            estrellas="★ ★ ★";
+        }
+        if (rankin == 4){
+            estrellas="★ ★ ★ ★";
+        }
+        if (rankin == 5){
+            estrellas="★ ★ ★ ★ ★";
+        }
+        return estrellas;
+    }
+
 
     @RequestMapping(value = "/restaurant", method = RequestMethod.POST)
     String save(@RequestParam("file")MultipartFile file,Restaurant restaurant) {
@@ -86,6 +117,9 @@ public class RestaurantContoller {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findByUsername(auth.getName());
         Iterable<Restaurant> restList = restaurantService.listAllRestaurants();
+        for (Restaurant rest: restList){
+            rest.setRankin(calcularRankin(rest));
+        }
         model.addAttribute("restList", restList);
         return "showRestaurants";
     }
@@ -95,6 +129,9 @@ public class RestaurantContoller {
         /*Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findByUsername(auth.getName());*/
         Iterable<Restaurant> restList = restaurantService.listAllRestaurants();
+        for (Restaurant rest: restList){
+                rest.setRankin(calcularRankin(rest));
+        }
         model.addAttribute("restList", restList);
         return "showRestaurantsPublic";
     }
@@ -104,6 +141,9 @@ public class RestaurantContoller {
         /*Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findByUsername(auth.getName());*/
         Iterable<Restaurant> restList = restaurantService.listAllRestaurants();
+        for (Restaurant rest: restList){
+            rest.setRankin(calcularRankin(rest));
+        }
         model.addAttribute("restList", restList);
         return "showRestaurantsUser";
     }
@@ -120,43 +160,16 @@ public class RestaurantContoller {
         }
     }
 
+
+
+
     @RequestMapping("/showRestaurant/{id}")
     String showRes(@PathVariable Integer id, Model model) {
         Restaurant rest = restaurantService.getRestaurant(id);
         model.addAttribute("rest", rest);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findByUsername(auth.getName());
-        int tam=rest.getComments().size();
-        int cont=0;
-        int rankin=0;
-        String estrellas="★";
-        if (tam>0)
-        {
-            for (Comment c : rest.getComments())
-            {
-                cont = cont + c.getEstrellas();
-            }
-            rankin=cont/tam;
-        }
-        if (rankin == 1){
-            estrellas="★";
-        }
-        if (rankin == 2){
-            estrellas="★ ★";
-        }
-        if (rankin == 3){
-            estrellas="★ ★ ★";
-        }
-        if (rankin == 4){
-            estrellas="★ ★ ★ ★";
-        }
-        if (rankin == 5){
-            estrellas="★ ★ ★ ★ ★";
-        }
-
-        model.addAttribute("estrellas",estrellas );
-
-
+        model.addAttribute("estrellas",calcularRankin(rest) );
         model.addAttribute("comment",new Comment(rest,user));
         model.addAttribute("use", user);
         return "showRestaurant";
@@ -166,37 +179,7 @@ public class RestaurantContoller {
     String showRest(@PathVariable Integer id, Model model) {
         Restaurant rest = restaurantService.getRestaurant(id);
         model.addAttribute("rest", rest);
-
-        int tam=rest.getComments().size();
-        int cont=0;
-        int rankin=0;
-        String estrellas="★";
-        if (tam>0)
-        {
-            for (Comment c : rest.getComments())
-            {
-                cont = cont + c.getEstrellas();
-            }
-            rankin=cont/tam;
-        }
-        if (rankin == 1){
-            estrellas="★";
-        }
-        if (rankin == 2){
-            estrellas="★ ★";
-        }
-        if (rankin == 3){
-            estrellas="★ ★ ★";
-        }
-        if (rankin == 4){
-            estrellas="★ ★ ★ ★";
-        }
-        if (rankin == 5){
-            estrellas="★ ★ ★ ★ ★";
-        }
-
-        model.addAttribute("estrellas",estrellas );
-
+        model.addAttribute("estrellas",calcularRankin(rest) );
         return "showRestaurantPublic";
     }
 
@@ -204,37 +187,7 @@ public class RestaurantContoller {
     String showRestAdmin(@PathVariable Integer id, Model model) {
         Restaurant rest = restaurantService.getRestaurant(id);
         model.addAttribute("rest", rest);
-
-        int tam=rest.getComments().size();
-
-        int cont=0;
-        int rankin=0;
-        String estrellas="★";
-        if (tam>0)
-        {
-            for (Comment c : rest.getComments())
-            {
-                cont = cont + c.getEstrellas();
-            }
-            rankin=cont/tam;
-        }
-        if (rankin == 1){
-            estrellas="★";
-        }
-        if (rankin == 2){
-            estrellas="★ ★";
-        }
-        if (rankin == 3){
-            estrellas="★ ★ ★";
-        }
-        if (rankin == 4){
-            estrellas="★ ★ ★ ★";
-        }
-        if (rankin == 5){
-            estrellas="★ ★ ★ ★ ★";
-        }
-
-        model.addAttribute("estrellas",estrellas );
+        model.addAttribute("estrellas",calcularRankin(rest) );
         return "showRestaurantAdmin";
     }
 

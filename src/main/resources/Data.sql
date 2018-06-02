@@ -36,6 +36,6 @@ INSERT INTO restaurant(id, name,phone,description,likes,category_id,city_id, lat
 
 
 
-INSERT INTO user (id,admin,last_name,name,password,username) VALUES (1,1,'Grillo','Pepe','$2a$10$QVUYllnp1PMD4aQN/TDese/L78dN0ABWhnolJl0xmMtmTt.7ajx72','a');
-INSERT INTO user (id,admin,last_name,name,password,username) VALUES (2,0,'b','aa','$2a$10$QVUYllnp1PMD4aQN/TDese/L78dN0ABWhnolJl0xmMtmTt.7ajx72','aa');
+INSERT INTO user (id,admin,name,last_name,password,username) VALUES (1,1,'Grillo','Pepe','$2a$10$QVUYllnp1PMD4aQN/TDese/L78dN0ABWhnolJl0xmMtmTt.7ajx72','a');
+INSERT INTO user (id,admin,name,last_name,password,username) VALUES (2,0,'ElHonrado','Juan','$2a$10$QVUYllnp1PMD4aQN/TDese/L78dN0ABWhnolJl0xmMtmTt.7ajx72','aa');
 
