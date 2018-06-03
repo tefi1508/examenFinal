@@ -181,6 +181,10 @@ tr > .center-glyph{
     color: #D2D4C8 !important;
 }
 
+.rankin{
+    color:yellow;
+}
+
 </style>
 
 <body>
@@ -237,6 +241,9 @@ tr > .center-glyph{
             <th>
                 Opciones
             </th>
+            <th>
+                <a class="rankin" href="/Order/Restaurants/user">★↑</a>
+            </th>
         </tr>
 
         <tr th:each="restaurant : ${restList}">
@@ -248,6 +255,8 @@ tr > .center-glyph{
             </td>
             <td class="center-glyph">
                 <a th:href="${'/showRestaurant/' + restaurant.id}"><span class="glyphicon glyphicon-arrow-right "></span></a>
+            </td>
+            <td th:text="${restaurant.rankin}">
             </td>
 
         </tr>

@@ -46,6 +46,15 @@ public class Restaurant {
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
     private List<Comment> comments;
 
+    private String rankin="";
+
+    public String getRankin() {
+        return rankin;
+    }
+
+    public void setRankin(String rankin) {
+        this.rankin = rankin;
+    }
 
     public Integer getId() {
         return id;
