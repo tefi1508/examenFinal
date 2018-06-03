@@ -197,6 +197,9 @@ label{
     font-size: 18px;
     letter-spacing: 3px;
 }
+.rankin{
+    color:yellow;
+}
 
 </style>
 
@@ -258,7 +261,7 @@ label{
                 Opciones
             </th>
             <th>
-                <a class="rankin" href="">★↑</a>
+                <a class="rankin" href="/Order/Restaurants/admin">★↑</a>
             </th>
         </tr>
 
@@ -273,7 +276,6 @@ label{
                 <a th:href="${'/showRestaurantAdmin/' + restaurant.id}"><span class="glyphicon glyphicon-arrow-right "></span></a>
                 <a th:href="${'/editRestaurant/' + restaurant.id}"><span class="glyphicon glyphicon-pencil"></span></a>
                 <a th:href="${'/deleteRestaurant/' + restaurant.id}"><span class="glyphicon glyphicon-trash"></span></a>
-            </td>
             </td>
             <td th:text="${restaurant.rankin}">
             </td>
