@@ -11,6 +11,45 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3Pn5twRq0nGzwNJrbPFKIUhMmz7asH9s"> </script>
+<script>
+    var lats=[];
+    var longs=[];
+    function initLocations(){
+        let lat = document.getElementsByClassName("lat");
+        let lon= document.getElementsByClassName("long");
+        for(var l in lat){
+            lats.push(parseFloat(lat[l].innerText));
+        }
+        for(var lo in lon){
+            longs.push(parseFloat(lon[lo].innerText));
+        }
+        longs.pop();
+        longs.pop();
+        longs.pop();
+        lats.pop();
+        lats.pop();
+        lats.pop();
+    }
+
+    function initMap() {
+        var uluru = {lat: lats[0], lng: longs[0]};
+        var map = new google.maps.Map(document.getElementById('googleMap'), {
+          zoom: 14,
+          center: uluru
+        });
+
+        for (var aux in lats) {
+              var prueba = {lat: lats[aux], lng: longs[aux]};
+              var marker = new google.maps.Marker({
+              position: prueba,
+              map: map
+            });
+        }
+    }
+
+    google.maps.event.addDomListener(window, 'load', initMap);
+</script>
 <style>
 
 @import url('https://fonts.googleapis.com/css?family=Sacramento');
@@ -201,6 +240,17 @@ label{
     color:yellow;
 }
 
+.findus{
+    text-align: center;
+}
+
+.findus h1{
+    font-family: 'Amatic SC', cursive;
+    font-size: 30px;
+    color: white;
+    margin: 0 auto;
+}
+
 </style>
 
 <body>
@@ -279,13 +329,24 @@ label{
             </td>
             <td th:text="${restaurant.rankin}">
             </td>
-
+            <label class="lat hidden" th:text="${restaurant.latitude}" ></label>
+            <label class="long hidden" th:text="${restaurant.longitud}" ></label>
         </tr>
-
     </table>
+    <script> initLocations() </script>
     <label>Añadir restaurant     </label>
     <a href="/newRestaurant" class="plus"><span class="glyphicon glyphicon-plus"></span></a>
 </div>
+
+</div>
+
+<div class="findus">
+    <br/>
+
+    <h1>Donde encontrarnos:</h1>
+    <br/>
+    <br/>
+    <div id="googleMap" style="width:100%;height:400px;"></div>
 
 </div>
 
