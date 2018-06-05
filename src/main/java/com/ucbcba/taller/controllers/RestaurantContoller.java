@@ -234,10 +234,19 @@ public class RestaurantContoller {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findByUsername(auth.getName());
         model.addAttribute("estrellas",calcularRankin(rest) );
-        model.addAttribute("comment",new Comment(rest,user));
-        model.addAttribute("use", user);
+        if(restaurantService.getRestaurant(id).getComments().contains(user)) {
+            model.addAttribute("comment",new Comment(rest,user));
+            model.addAttribute("use", user);
+            restaurantService.getRestaurant(id).setCommentUs(user.getId(),new Comment(rest, user));
+        }
+        else{
+            model.addAttribute("comment",new Comment(rest,user));
+            model.addAttribute("use", user);
+        }
         return "showRestaurant";
     }
+
+
 
     @RequestMapping("/showRestaurantPublic/{id}")
     String showRest(@PathVariable Integer id, Model model) {

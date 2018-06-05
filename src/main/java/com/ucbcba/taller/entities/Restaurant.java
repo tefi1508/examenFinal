@@ -140,7 +140,6 @@ public class Restaurant {
         this.longitud= longitud;
     }
 
-
     public boolean findUserLike(User user){
         for (User user1 : userslikes) {
             if (user1.getId()==user.getId()){
@@ -153,4 +152,24 @@ public class Restaurant {
     public List<Comment> getComments(){return comments;}
 
     public void setComments(List<Comment> comments){this.comments=comments;}
+
+    public Boolean getUserID(Long id){
+        Boolean resp=false;
+        for (int i=0; i < comments.size(); i++){
+            if (id == comments.get(i).getUser().getId()){
+                resp=true;
+                break;
+            }
+        }
+        return  resp;
+    }
+
+
+    public void setCommentUs(Long id,Comment comment){
+        for (int i=0; i < comments.size(); i++){
+            if (getUserID(id)){
+                comments.set(i,comment);
+            }
+        }
+     }
 }

@@ -16,9 +16,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class CategoryController {
     private CategoryService categoryService;
+    private UserService userService;
 
     @Autowired
-    private UserService userService;
+    public void setUserService(UserService userService){this.userService = userService;}
 
     @Autowired
     public void setCategoryService(CategoryService categoryService) {
