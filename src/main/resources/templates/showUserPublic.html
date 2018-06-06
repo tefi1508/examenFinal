@@ -288,6 +288,7 @@ input[type="radio"]:checked ~ label {
         <p th:each="comment : ${user.comments}" >
             <span th:text="${comment.restaurant.name}"></span>
             <span th:text="${comment.text}"></span>
+            <span th:text="${comment.stars}"></span>
             <br/>
         </p>
     </div>

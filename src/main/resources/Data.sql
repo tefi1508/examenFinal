@@ -1,5 +1,5 @@
 delete from comment;
-delete from  restaurant;
+delete from restaurant;
 delete from Category;
 delete from city;
 

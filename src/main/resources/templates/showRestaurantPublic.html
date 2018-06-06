@@ -371,8 +371,10 @@ body {
             <div class = "comments">
                 <h3>Comentarios:</h3>
                 <p th:each="comment : ${rest.comments}" >
-                    <span th:text="${comment.user.username}"></span>
+                    <span th:text="${comment.user.name}"></span>
+                    <span th:text="${comment.user.lastName}"></span>
                     <span th:text="${comment.text}"></span>
+                    <span th:text="${comment.stars}"></span>
                     <a th:href="${'/showUserFromCommentPublic/'+comment.user.username}">Ver perfil</a>
                     <br/>
                 </p>
