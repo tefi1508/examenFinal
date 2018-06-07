@@ -234,6 +234,7 @@ public class RestaurantContoller {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findByUsername(auth.getName());
         model.addAttribute("estrellas",calcularRankin(rest) );
+        model.addAttribute("canComment",rest.getUserID(user.getId()));
         if(restaurantService.getRestaurant(id).getComments().contains(user)) {
             model.addAttribute("comment",new Comment(rest,user));
             model.addAttribute("use", user);

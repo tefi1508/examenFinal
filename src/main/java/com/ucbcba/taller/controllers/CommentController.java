@@ -2,6 +2,7 @@ package com.ucbcba.taller.controllers;
 
 
 import com.ucbcba.taller.entities.Comment;
+import com.ucbcba.taller.entities.Restaurant;
 import com.ucbcba.taller.entities.User;
 import com.ucbcba.taller.services.CommentService;
 import com.ucbcba.taller.services.RestaurantService;
@@ -49,6 +50,7 @@ public class CommentController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findByUsername(auth.getName());
         comment.setUser(user);
+        comment.calculateStars();
         if (comment.getUser()== null){
             System.out.println("Error");
 
@@ -56,7 +58,10 @@ public class CommentController {
         else {
             System.out.println("Usuario Id: " + comment.getUser().getId());
         }
-        commentService.saveComment(comment);
+        Restaurant restaurant=restaurantService.getRestaurant(comment.getRestaurant().getId());
+        if(!restaurant.getUserID(comment.getUser().getId())) {
+            commentService.saveComment(comment);
+        }
         return "redirect:/showRestaurant/"+comment.getRestaurant().getId();
     }
 

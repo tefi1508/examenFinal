@@ -17,7 +17,9 @@ public class Comment {
     private String text;
 
 
-    private Integer estrellas;
+    private Integer estrellas = 0;
+
+    private String stars;
 
     @ManyToOne
     @JoinColumn(name= "restaurant_id")
@@ -60,4 +62,30 @@ public class Comment {
     }
 
 
+    public String getStars() {
+        return stars;
+    }
+
+    public void setStars(String stars) {
+        this.stars = stars;
+    }
+
+    public void calculateStars(){
+        Integer a=getEstrellas();
+        switch (a) {
+            case 0: stars="✰ ✰ ✰ ✰ ✰";
+                break;
+            case 1: stars="★ ✰ ✰ ✰ ✰";
+                break;
+            case 2: stars="★ ★ ✰ ✰ ✰";
+                break;
+            case 3: stars="★ ★ ★ ✰ ✰";
+                break;
+            case 4: stars="★ ★ ★ ★ ✰";
+                break;
+            case 5: stars="★ ★ ★ ★ ★";
+                break;
+        }
+        System.out.println(stars);
+    }
 }

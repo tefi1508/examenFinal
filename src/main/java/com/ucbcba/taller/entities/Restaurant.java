@@ -153,7 +153,7 @@ public class Restaurant {
 
     public void setComments(List<Comment> comments){this.comments=comments;}
 
-    public Boolean getUserID(Long id){
+    public boolean getUserID(Long id){
         Boolean resp=false;
         for (int i=0; i < comments.size(); i++){
             if (id == comments.get(i).getUser().getId()){
