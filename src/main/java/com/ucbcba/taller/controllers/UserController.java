@@ -2,7 +2,9 @@ package com.ucbcba.taller.controllers;
 
 
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import com.ucbcba.taller.entities.City;
+import com.ucbcba.taller.entities.Restaurant;
 import com.ucbcba.taller.entities.User;
 import com.ucbcba.taller.services.CityService;
 import com.ucbcba.taller.services.SecurityService;
@@ -126,8 +128,17 @@ public class UserController {
 
         return "welcome";
     }
+
     @RequestMapping(value = {"/bienvenidos"}, method = RequestMethod.GET)
     public String welcome2(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findByUsername(auth.getName());
+        model.addAttribute("user",user);
+        model.addAttribute("ciudad",user.getCity());
+        City city=user.getCity();
+        List<Restaurant> resList=city.getRestaurantList();
+        model.addAttribute("restList", resList);
+        model.addAttribute("esAdmin",user.isAdmin());
         return "bienvenidos";
     }
 
@@ -139,5 +150,6 @@ public class UserController {
         user.setAdmin(adm);
         return "redirect:/bienvenidos";
     }
+
 
 }

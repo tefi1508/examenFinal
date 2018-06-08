@@ -232,6 +232,24 @@ h2{
     text-decoration: none;
 }
 
+table {
+    border-radius: 5px;
+    width: 50%;
+    margin: 0px auto;
+    float: none;
+    font-family: 'Tajawal', sans-serif;
+    letter-spacing: 3px;
+    font-size: 18px;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    background-color: #7d1312;
+    font-weight: normal;
+}
+
+
 </style>
 
 <body>
@@ -264,6 +282,86 @@ h2{
             </div>
         </div>
     </form>
+    <br/>
+    <div class="container-fluid text-center bg-grey">
+        <div th:unless="${esAdmin}">
+        <h2 th:text="${ciudad.nombre}"></h2>
+        <br/>
+        <table>
+            <tr>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Telefono
+                </th>
+                <th>
+                    Categoria
+                </th>
+                <th>
+                    Opciones
+                </th>
+            </tr>
+
+            <tr th:each="restaurant : ${restList}">
+                <td th:text="${restaurant.name}">
+                </td>
+                <td th:text="${restaurant.phone}">
+                </td>
+                <td th:text="${restaurant.category.nombre}">
+                </td>
+                <td class="center-glyph">
+                    <a th:href="${'/showRestaurant/' + restaurant.id}"><span class="glyphicon glyphicon-arrow-right "></span></a>
+                </td>
+                <td th:text="${restaurant.rankin}">
+                </td>
+                <label class="lat hidden" th:text="${restaurant.latitude}" ></label>
+                <label class="long hidden" th:text="${restaurant.longitud}" ></label>
+            </tr>
+        </table>
+        </div>
+    </div>
+    <div class="container-fluid text-center bg-grey">
+        <div th:if="${esAdmin}">
+            <h2 th:text="${ciudad.nombre}"></h2>
+            <br/>
+            <table>
+                <tr>
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+                        Telefono
+                    </th>
+                    <th>
+                        Categoria
+                    </th>
+
+                    <th>
+                        Opciones
+                    </th>
+                </tr>
+
+                <tr th:each="restaurant : ${restList}">
+                    <td th:text="${restaurant.name}">
+                    </td>
+                    <td th:text="${restaurant.phone}">
+                    </td>
+                    <td th:text="${restaurant.category.nombre}">
+                    </td>
+                    <td class="center-glyph">
+                        <a th:href="${'/showRestaurantAdmin/' + restaurant.id}"><span class="glyphicon glyphicon-arrow-right "></span></a>
+                        <a th:href="${'/editRestaurant/' + restaurant.id}"><span class="glyphicon glyphicon-pencil"></span></a>
+                        <a th:href="${'/deleteRestaurant/' + restaurant.id}"><span class="glyphicon glyphicon-trash"></span></a>
+                    </td>
+                    <td th:text="${restaurant.rankin}">
+                    </td>
+                    <label class="lat hidden" th:text="${restaurant.latitude}" ></label>
+                    <label class="long hidden" th:text="${restaurant.longitud}" ></label>
+                </tr>
+            </table>
+        </div>
+    </div>
     <div class="container-fluid text-center bg-grey">
         <h2>Categorias</h2>
         <div class="row text-center">
