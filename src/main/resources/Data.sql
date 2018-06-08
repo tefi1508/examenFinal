@@ -31,11 +31,17 @@ INSERT INTO restaurant(id, name,phone,description,likes,category_id,city_id, lat
 INSERT INTO restaurant(id, name,phone,description,likes,category_id,city_id, latitude, longitud) VALUES (54,'Big Joy',4784498,'Regular',0,101,50, -17.377357, -66.153778);
 INSERT INTO restaurant(id, name,phone,description,likes,category_id,city_id, latitude, longitud) VALUES (55,'Los Castores',4555698,'Excelente',0,101,50, -17.383741, -66.158375);
 INSERT INTO restaurant(id, name,phone,description,likes,category_id,city_id, latitude, longitud) VALUES (56,'Shawarma King',4665698,'Buen lugar',0,103,50, -17.375345, -66.151010);
-INSERT INTO restaurant(id, name,phone,description,likes,category_id,city_id, latitude, longitud) VALUES (57,'La Cantonata',4665698,'Elegante',0,104,50, -17.388921, -66.157468);
+INSERT INTO restaurant(id, name,phone,description,likes,category_id,city_id, latitude, longitud) VALUES (57,'La Cantonata',4435748,'Elegante',0,104,50, -17.388921, -66.157468);
 
+INSERT INTO restaurant(id, name,phone,description,likes,category_id,city_id, latitude, longitud) VALUES (58,'Pollos KYKY',3213545,'El mejor pollo',0,101,52, -17.7926319, -63.1980829);
+INSERT INTO restaurant(id, name,phone,description,likes,category_id,city_id, latitude, longitud) VALUES (59,'Pizzeria El Horno',231358,'Elegante',0,100,52, -17.7992505,-63.2054704);
+INSERT INTO restaurant(id, name,phone,description,likes,category_id,city_id, latitude, longitud) VALUES (60,'El Tutumaso 2',2135466,'La rejoda',0,103,52, -17.8512169,-63.2191504);
 
-
+INSERT INTO restaurant(id, name,phone,description,likes,category_id,city_id, latitude, longitud) VALUES (61,'Planet Pizza',4444555,'Rico',0,100,51, -16.4982305, -68.1435346);
+INSERT INTO restaurant(id, name,phone,description,likes,category_id,city_id, latitude, longitud) VALUES (62,'Pollos Don Coco',4456288,'Buen servicio',0,101,51, -16.4965414,-68.146513);
+INSERT INTO restaurant(id, name,phone,description,likes,category_id,city_id, latitude, longitud) VALUES (63,'Dumbo',4564589,'Feo',0,102,51, -16.5016923, -68.1338041);
 
 INSERT INTO user (id,admin,name,last_name,password,username,city_id) VALUES (1,1,'Grillo','Pepe','$2a$10$QVUYllnp1PMD4aQN/TDese/L78dN0ABWhnolJl0xmMtmTt.7ajx72','a',50);
 INSERT INTO user (id,admin,name,last_name,password,username,city_id) VALUES (2,0,'ElHonrado','Juan','$2a$10$QVUYllnp1PMD4aQN/TDese/L78dN0ABWhnolJl0xmMtmTt.7ajx72','aa',57);
+INSERT INTO user (id,admin,name,last_name,password,username,city_id) VALUES (3,0,'Juan','Solo','$2a$10$QVUYllnp1PMD4aQN/TDese/L78dN0ABWhnolJl0xmMtmTt.7ajx72','aaa',50);
 

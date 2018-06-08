@@ -419,6 +419,7 @@ public class RestaurantContoller {
         }
     }
 
+
     @RequestMapping(value="/filtroEstrellas/{x}")
     public String filtroEstrellasPublic(@PathVariable Integer x, Model model){
 
@@ -478,6 +479,7 @@ public class RestaurantContoller {
         return "showRestaurants";
 
     }
+
 
 
 }
