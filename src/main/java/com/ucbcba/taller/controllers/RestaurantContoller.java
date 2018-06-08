@@ -419,4 +419,65 @@ public class RestaurantContoller {
         }
     }
 
+    @RequestMapping(value="/filtroEstrellas/{x}")
+    public String filtroEstrellasPublic(@PathVariable Integer x, Model model){
+
+        Iterable<Restaurant> restList = restaurantService.listAllRestaurants();
+        List<Restaurant> aux= new ArrayList<>();
+        for (Restaurant rest: restList){
+            if(promedioRankin(rest) >= x){
+
+                aux.add(rest);
+            }
+
+        }
+        for (Restaurant rest: restList){
+            rest.setRankin(calcularRankin(rest));
+        }
+        model.addAttribute("restList", aux);
+        return "showRestaurantsPublic";
+
+    }
+
+    @RequestMapping(value="/filtroEstrellasUser/{x}")
+    public String filtroEstrellasUser(@PathVariable Integer x, Model model){
+
+        Iterable<Restaurant> restList = restaurantService.listAllRestaurants();
+        List<Restaurant> aux= new ArrayList<>();
+        for (Restaurant rest: restList){
+            if(promedioRankin(rest) >= x){
+
+                aux.add(rest);
+            }
+
+        }
+        for (Restaurant rest: restList){
+            rest.setRankin(calcularRankin(rest));
+        }
+        model.addAttribute("restList", aux);
+        return "showRestaurantsUser";
+
+    }
+
+    @RequestMapping(value="/filtroEstrellasAdmin/{x}")
+    public String filtroEstrellasAdmin(@PathVariable Integer x, Model model){
+
+        Iterable<Restaurant> restList = restaurantService.listAllRestaurants();
+        List<Restaurant> aux= new ArrayList<>();
+        for (Restaurant rest: restList){
+            if(promedioRankin(rest) >= x){
+
+                aux.add(rest);
+            }
+
+        }
+        for (Restaurant rest: restList){
+            rest.setRankin(calcularRankin(rest));
+        }
+        model.addAttribute("restList", aux);
+        return "showRestaurants";
+
+    }
+
+
 }
