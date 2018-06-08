@@ -187,6 +187,13 @@ h2{
             <textarea name="lastName" th:text="${user.lastName}" id="lastName" class="text" cols="30" rows="3">
              </textarea>
             <br/>
+            <p>INGRESE CIUDAD:</p>
+            <select name="city" class="select">
+                <option th:each="city : ${cities}"
+                        th:value="${city.id}"
+                        th:text="${city.nombre}"
+                        th:selected="(${city.id} == ${user.city.id})"></option>
+            </select>
             <!--<p>IGRESE USERNAME:</p>-->
             <!--<textarea name="username" th:text="${user.username}" id="username" class="text" cols="30" rows="5">-->
              <!--</textarea>-->

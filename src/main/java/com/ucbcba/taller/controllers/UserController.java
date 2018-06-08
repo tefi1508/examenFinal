@@ -2,7 +2,9 @@ package com.ucbcba.taller.controllers;
 
 
 
+import com.ucbcba.taller.entities.City;
 import com.ucbcba.taller.entities.User;
+import com.ucbcba.taller.services.CityService;
 import com.ucbcba.taller.services.SecurityService;
 import com.ucbcba.taller.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+
 @Controller
 public class UserController {
     @Autowired
@@ -24,22 +28,26 @@ public class UserController {
     @Autowired
     private SecurityService securityService;
 
+    @Autowired
+    private CityService cityService;
+
     //@Autowired
     //private UserValidator userValidator;
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registrationInit(Model model) {
         model.addAttribute("user", new User());
-
+        Iterable<City> cityList = cityService.listAllCities();
+        model.addAttribute("cities", cityList);
         return "registration";
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String registration(@ModelAttribute("user") User user, BindingResult bindingResult, Model model) {
+
         if (bindingResult.hasErrors()) {
             return "registration";
         }
-
         userService.save(user);
         securityService.autologin(user.getUsername(), user.getPasswordConfirm());
         return "redirect:/bienvenidos";
@@ -103,6 +111,8 @@ public class UserController {
     String editUser(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findByUsername(auth.getName());
+        Iterable<City> cityList = cityService.listAllCities();
+        model.addAttribute("cities", cityList);
         model.addAttribute("user", user);
         return "editUser";
     }

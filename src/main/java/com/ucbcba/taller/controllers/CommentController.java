@@ -51,13 +51,6 @@ public class CommentController {
         User user = userService.findByUsername(auth.getName());
         comment.setUser(user);
         comment.calculateStars();
-        if (comment.getUser()== null){
-            System.out.println("Error");
-
-        }
-        else {
-            System.out.println("Usuario Id: " + comment.getUser().getId());
-        }
         Restaurant restaurant=restaurantService.getRestaurant(comment.getRestaurant().getId());
         if(!restaurant.getUserID(comment.getUser().getId())) {
             commentService.saveComment(comment);

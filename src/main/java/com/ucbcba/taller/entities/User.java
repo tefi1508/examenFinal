@@ -30,6 +30,9 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Comment> comments;
 
+    @ManyToOne
+    @JoinColumn(name="city_id")
+    private City city;
 
     public Long getId() {
         return id;
@@ -108,4 +111,12 @@ public class User {
     public List<Comment> getComments(){return comments;}
 
     public void setComments(List<Comment> comments){this.comments=comments;}
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
 }

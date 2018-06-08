@@ -86,6 +86,5 @@ public class Comment {
             case 5: stars="★ ★ ★ ★ ★";
                 break;
         }
-        System.out.println(stars);
     }
 }
