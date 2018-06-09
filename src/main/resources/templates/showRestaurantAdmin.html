@@ -268,6 +268,30 @@ h2{
    padding: 5px;
 }
 
+table {
+    border-radius: 4px;
+    width: 50%;
+    margin: 0px auto;
+    float: none;
+    font-family: 'Tajawal', sans-serif;
+    letter-spacing: 3px;
+    font-size: 15px;
+}
+
+th, td {
+    text-align: left;
+    padding: 7px;
+    background-color: #7d1312;
+    font-weight: normal;
+}
+
+th {
+    text-align: center;
+    background-color: #560000;
+    color: white;
+}
+
+
 </style>
 
 <body>
@@ -309,14 +333,36 @@ h2{
             <!-- Comments -->
             <div class = "comments">
                 <h3>Comentarios:</h3>
-                <p th:each="comment : ${rest.comments}" >
-                    <span th:text="${comment.user.name}"></span>
-                    <span th:text="${comment.user.lastName}"></span>
-                    <span th:text="${comment.text}"></span>
-                    <span th:text="${comment.stars}"></span>
-                    <a th:href="${'/showUserFromComment/'+comment.user.username}">Ver perfil</a>
-                    <br/>
-                </p>
+                <table>
+                    <tr>
+                        <th>
+                            Nombre
+                        </th>
+                        <th>
+                            Apellido
+                        </th>
+                        <th>
+                            Comentario
+                        </th>
+                        <th>
+                            Calificacion
+                        </th>
+                        <th>
+                            Perfil
+                        </th>
+                    </tr>
+                    <tr th:each="comment : ${rest.comments}" >
+                        <td th:text="${comment.user.name}"></td>
+                        <td th:text="${comment.user.lastName}"></td>
+                        <td th:text="${comment.text}"></td>
+                        <td th:text="${comment.stars}"></td>
+                        <td class="center-glyph">
+                            <a th:href="${'/showUserFromComment/'+comment.user.username}">Ver perfil</a>
+                        </td>
+                        <!--<span th:text="${comment.user.name}"></span>-->
+                        <br/>
+                    </tr>
+                </table>
             </div>
             <!-- End comments -->
         </div>
