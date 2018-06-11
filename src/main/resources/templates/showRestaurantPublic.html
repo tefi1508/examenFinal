@@ -416,7 +416,7 @@ body {
                 <p>
                     <tr th:each="comment : ${rest.comments}" >
                         <div id="username">
-                            <td th:text="${comment.user.name}"></td>
+                            <a th:href="${'/showUserFromCommentPublic/'+comment.user.username}" th:text="${comment.user.name}  + ' ' + ${comment.user.lastName} + ':'">Static content</a>
                         </div>
                         <td th:text="${comment.text}"></td>
                         <td th:text="${comment.estrellas} + '/5'">Static content</td>

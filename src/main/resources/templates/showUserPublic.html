@@ -197,6 +197,29 @@ input[type="radio"]:checked ~ label {
     color: #D2D4C8;
 }
 
+table {
+    border-radius: 4px;
+    width: 50%;
+    margin: 0px auto;
+    float: none;
+    font-family: 'Tajawal', sans-serif;
+    letter-spacing: 3px;
+    font-size: 15px;
+}
+
+th, td {
+    text-align: left;
+    padding: 7px;
+    background-color: #7d1312;
+    font-weight: normal;
+}
+
+th {
+    text-align: center;
+    background-color: #560000;
+    color: white;
+}
+
 </style>
 
 <body>
@@ -289,12 +312,25 @@ input[type="radio"]:checked ~ label {
     <hr/>
     <div class = "down">
         <h3>Comentarios:</h3>
-        <p th:each="comment : ${user.comments}" >
-            <span th:text="${comment.restaurant.name}"></span>
-            <span th:text="${comment.text}"></span>
-            <span th:text="${comment.stars}"></span>
-            <br/>
-        </p>
+        <table>
+            <tr>
+                <th>
+                    Restaurante
+                </th>
+                <th>
+                    Comentario
+                </th>
+                <th>
+                    Calificacion
+                </th>
+            </tr>
+            <tr th:each="comment : ${user.comments}" >
+                <td th:text="${comment.restaurant.name}"></td>
+                <td th:text="${comment.text}"></td>
+                <td th:text="${comment.stars}"></td>
+                <br/>
+            </tr>
+        </table>
     </div>
     <hr/>
 </div>

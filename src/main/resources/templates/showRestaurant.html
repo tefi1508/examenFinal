@@ -385,7 +385,7 @@ input[type="radio"]:checked ~ label {
                     <h3>Comentarios:</h3>
                     <p>
                         <tr th:each="comment : ${rest.comments}" >
-                            <a th:href="${'/showUserFromComment/'+comment.user.username}" th:text="${comment.user.name} + ':'">Static content</a>
+                            <a th:href="${'/showUserFromComment/'+comment.user.username}" th:text="${comment.user.name} + ' ' + ${comment.user.lastName} + ':'">Static content</a>
                             <td th:text="${comment.text}"></td>
                             <td th:text="${comment.estrellas} + '/5'">Static content</td>
                             <br/>
