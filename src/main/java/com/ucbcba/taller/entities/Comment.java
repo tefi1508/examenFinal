@@ -73,17 +73,17 @@ public class Comment {
     public void calculateStars(){
         Integer a=getEstrellas();
         switch (a) {
-            case 0: stars="✰ ✰ ✰ ✰ ✰";
+            case 0: stars="° ° ° ° °";
                 break;
-            case 1: stars="★ ✰ ✰ ✰ ✰";
+            case 1: stars="* ° ° ° °";
                 break;
-            case 2: stars="★ ★ ✰ ✰ ✰";
+            case 2: stars="* * ° ° °";
                 break;
-            case 3: stars="★ ★ ★ ✰ ✰";
+            case 3: stars="* * * ° °";
                 break;
-            case 4: stars="★ ★ ★ ★ ✰";
+            case 4: stars="* * * * °";
                 break;
-            case 5: stars="★ ★ ★ ★ ★";
+            case 5: stars="* * * * *";
                 break;
         }
     }
