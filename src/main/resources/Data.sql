@@ -4,6 +4,7 @@ delete from Category;
 delete from city;
 
 delete from User;
+delete from userprofile;
 
 
 INSERT INTO category(id, nombre) VALUES (100, 'Pizza');
@@ -45,3 +46,11 @@ INSERT INTO user (id,admin,name,last_name,password,username,city_id) VALUES (1,1
 INSERT INTO user (id,admin,name,last_name,password,username,city_id) VALUES (2,0,'ElHonrado','Juan','$2a$10$QVUYllnp1PMD4aQN/TDese/L78dN0ABWhnolJl0xmMtmTt.7ajx72','aa',57);
 INSERT INTO user (id,admin,name,last_name,password,username,city_id) VALUES (3,0,'Juan','Solo','$2a$10$QVUYllnp1PMD4aQN/TDese/L78dN0ABWhnolJl0xmMtmTt.7ajx72','aaa',50);
 
+INSERT INTO user (id,admin,name,last_name,password,username,city_id) VALUES (4,0,'Nicolas','PDL','$2a$10$QVUYllnp1PMD4aQN/TDese/L78dN0ABWhnolJl0xmMtmTt.7ajx72','b',50);
+INSERT INTO user (id,admin,name,last_name,password,username,city_id) VALUES (5,0,'Maye','GS','$2a$10$QVUYllnp1PMD4aQN/TDese/L78dN0ABWhnolJl0xmMtmTt.7ajx72','bb',50);
+INSERT INTO user (id,admin,name,last_name,password,username,city_id) VALUES (6,0,'Joshua','NV','$2a$10$QVUYllnp1PMD4aQN/TDese/L78dN0ABWhnolJl0xmMtmTt.7ajx72','bbb',50);
+
+INSERT INTO userprofile(id, comment_count, username, user_id) VALUES (11,0, 'Juan',2);
+INSERT INTO userprofile(id, comment_count, username, user_id) VALUES (12,1, 'Nico',4);
+INSERT INTO userprofile(id, comment_count, username, user_id) VALUES (13,5, 'May',5);
+INSERT INTO userprofile(id, comment_count, username, user_id) VALUES (14,100, 'Josh',6);

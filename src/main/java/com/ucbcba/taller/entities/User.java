@@ -23,6 +23,7 @@ public class User {
     private String lastName;
     private Blob photo;
     private boolean admin=false;
+
     @ManyToMany
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
@@ -33,6 +34,10 @@ public class User {
     @ManyToOne
     @JoinColumn(name="city_id")
     private City city;
+
+    @OneToOne
+    @JoinColumn(name = "userprofile_id")
+    private UserProfile userProfile;
 
     public Long getId() {
         return id;
@@ -118,5 +123,13 @@ public class User {
 
     public void setCity(City city) {
         this.city = city;
+    }
+
+    public UserProfile getUserProfile() {
+        return userProfile;
+    }
+
+    public void setUserProfile(UserProfile userProfile) {
+        this.userProfile = userProfile;
     }
 }

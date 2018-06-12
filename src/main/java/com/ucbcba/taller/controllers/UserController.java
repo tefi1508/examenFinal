@@ -6,8 +6,10 @@ import com.sun.org.apache.xpath.internal.operations.Mod;
 import com.ucbcba.taller.entities.City;
 import com.ucbcba.taller.entities.Restaurant;
 import com.ucbcba.taller.entities.User;
+import com.ucbcba.taller.entities.UserProfile;
 import com.ucbcba.taller.services.CityService;
 import com.ucbcba.taller.services.SecurityService;
+import com.ucbcba.taller.services.UserProfileService;
 import com.ucbcba.taller.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -33,6 +35,11 @@ public class UserController {
     @Autowired
     private CityService cityService;
 
+    @Autowired
+    private UserProfileService userProfileService;
+
+
+
     //@Autowired
     //private UserValidator userValidator;
 
@@ -50,6 +57,7 @@ public class UserController {
         if (bindingResult.hasErrors()) {
             return "registration";
         }
+
         userService.save(user);
         securityService.autologin(user.getUsername(), user.getPasswordConfirm());
         return "redirect:/bienvenidos";
